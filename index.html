@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Ball movement</title>  <!-- I give title ball movement of this program-->
+    </head>
+
+<body>
+  <!-- this div conatainer for creating a ball-->
+    <div
+      id='ball'
+      style="z-index:5;
+      position:absolute;
+      top: 200px;
+      left:0px;
+      width: 100px;
+      height: 100px;
+      border-radius: 20%; 
+      background:purple;">
+      <!--  and style the ball using width and height and background color-->
+      
+  </div>
+
+</body>
+
+<script>
+  // and i should declare the variable velocity for speed of the  ball
+   var velocity=300;
+  // and i declare the variable position x and y  for ball moving direction
+   var positionX=0;
+   var positionY=0;
+   var reverse=false;
+   // and i get id from html using getid
+   var ball= document.getElementById('ball');
+    // and set the  min and max values for x and y 
+   var Xmin=0;
+   var Xmax=500;
+   var Ymin=0;
+   var Ymax=400;
+   
+   // and write the Ball() for calculate the values
+   function Ball(){
+
+   if(!reverse){
+        positionX=positionX+velocity;
+        positionY=positionY+velocity;
+
+    // add the position x,y and velocity  and assign into the ball style left and top
+        ball.style.left=positionX + 'px'
+        ball.style.top=positionY + 'px'
+   }
+   else{
+        positionX=positionX-velocity;
+        positionY=positionY-velocity;
+
+        // here subract the position x , y and velocity  and assign into the ball style left and top
+        ball.style.left=positionX + 'px'
+        ball.style.top=positionY + 'px'
+   }
+     // here chech the values positionx greater than xmax  like wise its one condition true means ball should move to x and y axis.
+   if((positionX>Xmax || positionX==Xmin) || (positionY>Ymax || positionY==Ymin)){
+      
+     reverse = !reverse
+   }
+   }
+    setInterval(Ball,200);
+
+</script>
+</html>
+
+
+
+
